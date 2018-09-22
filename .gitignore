@@ -1,0 +1,8 @@
+/bin/*
+!/bin/build.sh
+!/bin/console
+/events.json
+/vendor
+/.idea
+/phpunit.xml
+/infection-log.txt

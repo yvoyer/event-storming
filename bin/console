@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+use Star\Infrastructure\Cli\EventStormCommand;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+require __DIR__.'/../vendor/autoload.php';
+
+$application = new Application('Event storming', '0.1');
+$application->add(new EventStormCommand());
+$application->setDefaultCommand(EventStormCommand::NAME, true);
+$input = new ArgvInput();
+$application->run($input);
