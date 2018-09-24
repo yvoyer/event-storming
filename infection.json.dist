@@ -1,0 +1,17 @@
+{
+    "timeout": 10,
+    "phpUnit": {
+        "customPath": "bin\/phpunit"
+    },
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "JsonFormatter.php"
+        ]
+    },
+    "logs": {
+        "text": "infection-log.txt"
+    }
+}
