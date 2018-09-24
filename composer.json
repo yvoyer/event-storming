@@ -1,9 +1,9 @@
 {
     "name": "star/event-storming",
     "description": "Tool for building event",
-	"license": "MIT",
+    "license": "MIT",
     "type": "project",
-	"require": {
+    "require": {
         "php": "^7.1",
         "symfony/console": "^4.1"
     },
@@ -25,8 +25,8 @@
            "Star\\": "tests"
         }
     },
-	"config": {
-		"bin-dir": "bin/",
-		"sort-packages": true
-	}
+    "config": {
+        "bin-dir": "bin/",
+        "sort-packages": true
+    }
 }
