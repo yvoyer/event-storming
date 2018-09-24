@@ -25,12 +25,7 @@ final class PhpFile implements FileStream
      */
     public function getContents(): string
     {
-        $contents = \file_get_contents($this->path);
-        if (! $contents) {
-            var_dump($contents);
-        }
-
-        return $contents;
+        return \strval(\file_get_contents($this->path));
     }
 
     /**

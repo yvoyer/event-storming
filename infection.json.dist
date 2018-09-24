@@ -6,6 +6,9 @@
     "source": {
         "directories": [
             "src"
+        ],
+        "excludes": [
+            "JsonFormatter.php"
         ]
     },
     "logs": {

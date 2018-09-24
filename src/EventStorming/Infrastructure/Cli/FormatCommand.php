@@ -58,8 +58,7 @@ final class FormatCommand extends Command
                 [
                     'User',
                     'System',
-                ],
-                0
+                ]
             )
         );
 

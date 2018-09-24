@@ -118,6 +118,18 @@ STRING;
         $this->assertContains('The changes were not applied...', $this->tester->getDisplay());
     }
 
+    public function test_it_should_output_the_header()
+    {
+        $this->assertQuestionsAreAsked(
+            [
+                self::QUESTION_EVENT_TYPE => ['user'],
+                self::QUESTION_CONFIRM => [false],
+            ]
+        );
+        $this->tester->execute(['event' => 'name']);
+        $this->assertContains('Welcome to the tool for generation event.', $this->tester->getDisplay());
+    }
+
     private function assertQuestionsAreAsked(array $questions): void
     {
         $this->command->setHelperSet(

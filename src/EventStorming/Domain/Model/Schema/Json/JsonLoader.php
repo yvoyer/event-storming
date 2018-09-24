@@ -16,8 +16,8 @@ final class JsonLoader implements SchemaLoader
      */
     public function load(EventTypeFactory $factory, string $string): Schema
     {
-        $date = \json_decode($string, true);
-        if (! is_array($date)) {
+        $data = \json_decode($string, true);
+        if (! is_array($data)) {
             throw new InvalidJsonFormat(
                 sprintf(
                     'Invalid Json data provided, data must be an object, "%s" supplied.',
@@ -27,7 +27,7 @@ final class JsonLoader implements SchemaLoader
         }
         $schema = new Schema($factory);
 
-        foreach ($date as $stringType => $events) {
+        foreach ($data as $stringType => $events) {
             foreach ($events as $eventData) {
                 $schema->addEvent($stringType, $eventData['name']);
             }
