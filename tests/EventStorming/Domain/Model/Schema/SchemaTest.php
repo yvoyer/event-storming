@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Star\Schema;
+namespace Star\EventStorming\Domain\Model\Schema;
 
 use PHPUnit\Framework\TestCase;
 use Star\EventStorming\Domain\Model\AlwaysCreateEvent;

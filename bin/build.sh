@@ -11,4 +11,4 @@ echo "############## Running PHPStan ##############"
 bin/phpstan analyse -l max -c phpstan.neon src/
 
 echo "############## Running Infection ##############"
-bin/infection
+bin/infection --test-framework-options="--testsuite=default"

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Star\Infrastructure\Cli;
+namespace Star\EventStorming\Infrastructure\Cli;
 
 use PHPUnit\Framework\AssertionFailedError;
 use Symfony\Component\Console\Helper\Helper;

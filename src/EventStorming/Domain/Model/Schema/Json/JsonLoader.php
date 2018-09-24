@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Star\Schema\Json;
+namespace Star\EventStorming\Domain\Model\Schema\Json;
 
 use Star\EventStorming\Domain\Model\EventTypeFactory;
-use Star\Schema\Schema;
-use Star\Schema\SchemaLoader;
+use Star\EventStorming\Domain\Model\Schema\Schema;
+use Star\EventStorming\Domain\Model\Schema\SchemaLoader;
 
 final class JsonLoader implements SchemaLoader
 {

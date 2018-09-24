@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Star\Schema\Json;
+namespace Star\EventStorming\Domain\Model\Schema\Json;
 
 use Star\EventStorming\Domain\Model\EventType;
 use Star\EventStorming\Domain\Model\EventVisitor;
-use Star\Schema\Schema;
-use Star\Schema\SchemaDumper;
+use Star\EventStorming\Domain\Model\Schema\Schema;
+use Star\EventStorming\Domain\Model\Schema\SchemaDumper;
 
 final class JsonDumper implements EventVisitor, SchemaDumper
 {

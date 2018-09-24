@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Star\Schema\Json;
+namespace Star\EventStorming\Domain\Model\Schema\Json;
 
 use PHPUnit\Framework\TestCase;
 use Star\EventStorming\Domain\Model\EventTypeFactory;

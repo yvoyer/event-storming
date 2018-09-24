@@ -1,10 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Star\Infrastructure\Cli;
+namespace Star\EventStorming\Infrastructure\Cli;
 
 use Star\EventStorming\Domain\Model\ChainEventTypeFactory;
-use Star\Schema\Json\JsonDumper;
-use Star\Schema\Json\JsonLoader;
+use Star\EventStorming\Domain\Model\Schema\Json\JsonDumper;
+use Star\EventStorming\Domain\Model\Schema\Json\JsonLoader;
+use Star\EventStorming\Infrastructure\Filesystem\FileStream;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,9 +16,9 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-final class EventStormCommand extends Command
+final class FormatCommand extends Command
 {
-    const NAME = 'event:configure';
+    const NAME = 'format';
 
     /**
      * @var InputInterface
@@ -30,17 +31,13 @@ final class EventStormCommand extends Command
     private $output;
 
     /**
-     * @var string
+     * @var FileStream
      */
-    private $path;
+    private $file;
 
-    public function __construct(string $path = null)
+    public function __construct(FileStream $file)
     {
-        if (! $path) {
-            $path = realpath(__DIR__ . '/../../../events.json');
-        }
-
-        $this->path = (string) $path;
+        $this->file = $file;
         parent::__construct(self::NAME);
     }
 
@@ -66,10 +63,7 @@ final class EventStormCommand extends Command
             )
         );
 
-        $data = '[]';
-        if (\file_exists($this->path)) {
-            $data  = (string) \file_get_contents($this->path);
-        }
+        $data = $this->file->getContents();
 
         $loader = new JsonLoader();
         $schema = $loader->load(new ChainEventTypeFactory(), $data);
@@ -86,8 +80,8 @@ final class EventStormCommand extends Command
             return 1;
         }
 
-        \file_put_contents($this->path, $dumpData);
-        $this->output->success(sprintf('Wrote file: "%s".', $this->path));
+        $this->file->putContents($dumpData);
+        $this->output->success(sprintf('Wrote file: "%s".', $this->file->getPath()));
 
         return 0;
     }
