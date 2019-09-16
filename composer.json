@@ -5,11 +5,13 @@
     "type": "project",
     "require": {
         "php": "^7.1",
+        "ramsey/uuid": "^3.8",
+        "star/domain-event": "^2.0",
         "symfony/console": "^4.1"
     },
 	"require-dev": {
         "infection/infection": "^0.10.5",
-        "mikey179/vfsStream": "^1.6",
+        "mikey179/vfsstream": "^1.6",
         "phpstan/phpstan": "^0.10.3",
         "phpstan/phpstan-phpunit": "^0.10.0",
         "phpunit/phpunit": "^7.3",
