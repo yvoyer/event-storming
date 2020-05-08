@@ -1,17 +1,19 @@
 #!/usr/bin/env php
 <?php
 
+use Star\EventStorming\Infrastructure\Cli\Application;
 use Star\EventStorming\Infrastructure\Cli\FormatCommand;
 use Star\EventStorming\Infrastructure\Filesystem\PhpFile;
-use Symfony\Component\Console\Application;
+use Star\EventStorming\Infrastructure\Persistence\InMemory\EventCollection;
 use Symfony\Component\Console\Input\ArgvInput;
 
 require __DIR__.'/../vendor/autoload.php';
 
-$application = new Application('Event storming', '0.1');
+$application = new Application(new EventCollection());
 $application->add(
     new FormatCommand(new PhpFile(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'events.json'))
 );
-$application->setDefaultCommand(FormatCommand::NAME, true);
 $input = new ArgvInput();
 $application->run($input);
+
+return $application;

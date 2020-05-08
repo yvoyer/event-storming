@@ -2,6 +2,7 @@
 Format command help
 --FILE--
 <?php
+$_SERVER['argv'][] = 'format';
 $_SERVER['argv'][] = '--help';
 $_SERVER['argv'][] = '--no-ansi';
 
