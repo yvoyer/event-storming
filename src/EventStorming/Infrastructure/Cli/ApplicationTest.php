@@ -42,11 +42,11 @@ final class ApplicationTest extends TestCase
         $this->events->saveEvent($event = EventAggregate::fixture());
 
         $this->runCommand(
-            'event:rename'#,
-  #          [
-               # 'id' => $event->getId()->toString(),
-   #             'name' => 'Event was created',
-    #        ]
+            'event:rename',
+            [
+                'id' => $event->getId()->toString(),
+                'name' => 'Event was created',
+            ]
         );
 
         $this->assertContains(

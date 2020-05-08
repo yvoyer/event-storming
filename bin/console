@@ -15,3 +15,5 @@ $application->add(
 );
 $input = new ArgvInput();
 $application->run($input);
+
+return $application;

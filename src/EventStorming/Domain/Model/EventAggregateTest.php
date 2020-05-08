@@ -10,13 +10,15 @@ final class EventAggregateTest extends TestCase
     public function test_it_should_create_basic_suggested_event(): void
     {
         $aggregate = EventAggregate::suggested(
-            EventId::fromString('id'), EventName::fromString('name')
+            EventId::fromString('id'),
+            EventName::fromString('name')
         );
 
         /**
          * @var EventWasProposed[] $events
          */
-        $this->assertCount(1, $events = $aggregate->uncommitedEvents());
+        $events = $aggregate->uncommitedEvents();
+        $this->assertCount(1, $events);
         $this->assertInstanceOf(EventWasProposed::class, $event = $events[0]);
         $this->assertSame('id', $event->eventId()->toString());
         $this->assertSame('name', $event->name()->toString());

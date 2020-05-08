@@ -2,7 +2,7 @@
 
 namespace Star\EventStorming\Infrastructure\Persistence\InMemory;
 
-use Star\EventStorming\Domain\Model\DomainEvent;
+use Star\Component\DomainEvent\DomainEvent;
 use Star\EventStorming\Domain\Model\EventAggregate;
 use Star\EventStorming\Domain\Model\EventId;
 use Star\EventStorming\Domain\Model\EventRepository;

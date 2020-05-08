@@ -31,9 +31,11 @@ final class EventCreateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->bus->dispatchCommand(new SuggestEvent(
-            $id = EventId::asUUID(),
-            EventName::fromString($input->getArgument('name')))
+        $this->bus->dispatchCommand(
+            new SuggestEvent(
+                $id = EventId::asUUID(),
+                EventName::fromString($input->getArgument('name'))
+            )
         );
 
         $output->writeln($id->toString());
